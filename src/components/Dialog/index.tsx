@@ -33,17 +33,15 @@ function Dialog({
 
 	return (
 		<Fragment>
-			{isOpen && (
-				<div className="overlay">
-					<div className="dialog" ref={closeOnOverlayClick ? ref : null}>
-						<button className="close-dialog" onClick={onClose}>
-							&#10005;
-						</button>
-						<h1>{title}</h1>
-						<p>{description}</p>
-					</div>
+			<div className="overlay" hidden={!isOpen}>
+				<div className="dialog" ref={closeOnOverlayClick ? ref : null}>
+					<button className="close-dialog" onClick={onClose}>
+						&#10005;
+					</button>
+					<h1>{title}</h1>
+					<p>{description}</p>
 				</div>
-			)}
+			</div>
 		</Fragment>
 	)
 }

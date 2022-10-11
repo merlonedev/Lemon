@@ -13,10 +13,17 @@ div.overlay
   div.dialog
     border: 1px solid black
     border-radius: 5px
-    padding: 1rem
+    padding: 0 10rem
+    text-align: justify
     background-color: white
     width: fit-content
-    height: fit-content
+    height: 50vh
+    position: absolute
+    top: 50vh
+    overflow-y: scroll
+
+    h1
+      text-align: center
 
     button.close-dialog
       border: none
@@ -25,3 +32,4 @@ div.overlay
       float: right
       cursor: pointer
       font-size: 1rem
+  
