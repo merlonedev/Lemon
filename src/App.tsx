@@ -9,6 +9,7 @@ function App() {
 			<Dialog
 				title="Dialog with overlay click"
 				description="You are able to close this dialog window by clicking on the overlay, as well as pressing ESC or in the close button"
+        isOpen={true}
 			/>
 		</main>
 	)
