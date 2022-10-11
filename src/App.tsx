@@ -15,11 +15,20 @@ function App() {
 
 	return (
 		<main>
-			<h1 className="title">Lemon</h1>
+			<div className="project-description">
+				<h1 className="title">Lemon</h1>
+				<p>
+					This is a project designed for my job application as Frontend
+					Developer at Lemon Energia, a Brazilian company that aims for the
+					facilitation and accessibility of sustainable energy. In this project
+					I've used React (with Vite), Sass and Typescript, other than minor
+					addons such as React Switch.
+				</p>
+			</div>
 			<div className="container">
 				<p>
 					Change the switch to enable/disable the closing of the dialog by
-					clicking outside of it!
+					clicking outside of it
 				</p>
 
 				{/* source: https://www.npmjs.com/package/react-switch */}
@@ -33,7 +42,7 @@ function App() {
 			</div>
 			<Dialog
 				title="Dialog with overlay click"
-				description="You are able to close this dialog window by clicking on the overlay, as well as pressing ESC or in the close button"
+				description="You are able to close this dialog window by clicking on the overlay, as well as either pressing ESC in the keyboard or the close button"
 				isOpen={isOpen}
 				onClose={() => setIsOpen(false)}
 				closeOnOverlayClick={overlayClick}
