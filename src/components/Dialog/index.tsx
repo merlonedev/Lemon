@@ -17,6 +17,7 @@ function Dialog({
 	onClose,
 	closeOnOverlayClick,
 }: Props) {
+	console.log(`🚀 ~ closeOnOverlayClick`, closeOnOverlayClick)
 	const ref = useRef<HTMLDivElement>(null)
 	useOutsideClick({ ref, onClose })
 
@@ -34,7 +35,7 @@ function Dialog({
 		<Fragment>
 			{isOpen && (
 				<div className="overlay">
-					<div className="dialog" ref={closeOnOverlayClick ? ref : ""}>
+					<div className="dialog" ref={closeOnOverlayClick ? ref : null}>
 						<button className="close-dialog" onClick={onClose}>
 							&#10005;
 						</button>
