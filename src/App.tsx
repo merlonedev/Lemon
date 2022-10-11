@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./App.sass"
 import Dialog from "./components/Dialog"
 import Switch from "react-switch"
+import logo from "./assets/lemon.svg"
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +17,8 @@ function App() {
 	return (
 		<main>
 			<div className="project-description">
-				<h1 className="title">Lemon</h1>
+				{/* <h1 className="title">Lemon</h1> */}
+				<img src={logo} alt="Lemon logo" />
 				<p>
 					This is a project designed for my job application as Frontend
 					Developer at Lemon Energia, a Brazilian company that aims for the
@@ -32,7 +34,11 @@ function App() {
 				</p>
 
 				{/* source: https://www.npmjs.com/package/react-switch */}
-				<Switch checked={checked} onChange={handleChange} />
+				<Switch
+					checked={checked}
+					onChange={handleChange}
+					onColor="#008059"
+				/>
 				<button
 					className="open-dialog grid-item-1"
 					onClick={() => setIsOpen(true)}
