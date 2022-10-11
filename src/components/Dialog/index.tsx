@@ -7,9 +7,16 @@ interface Props {
 	description?: string
 	isOpen: boolean
 	onClose: () => void
+	closeOnOverlayClick: boolean
 }
 
-const Dialog = ({ title, description, isOpen, onClose }: Props) => {
+function Dialog({
+	title,
+	description,
+	isOpen,
+	onClose,
+	closeOnOverlayClick,
+}: Props) {
 	const ref = useRef<HTMLDivElement>(null)
 	useOutsideClick({ ref, onClose })
 
@@ -27,7 +34,7 @@ const Dialog = ({ title, description, isOpen, onClose }: Props) => {
 		<Fragment>
 			{isOpen && (
 				<div className="overlay">
-					<div className="dialog" ref={ref}>
+					<div className="dialog" ref={closeOnOverlayClick ? ref : ""}>
 						<button className="close-dialog" onClick={onClose}>
 							&#10005;
 						</button>
