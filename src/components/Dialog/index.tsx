@@ -1,4 +1,5 @@
 import React from "react"
+import "./dialog.sass"
 
 interface Props {
 	title: string
@@ -7,9 +8,11 @@ interface Props {
 
 const Dialog = ({ title, description }: Props) => {
 	return (
-		<div className="dialog">
-			<h1>{title}</h1>
-			<p>{description}</p>
+		<div className="overlay">
+			<div className="dialog">
+				<h1>{title}</h1>
+				<p>{description}</p>
+			</div>
 		</div>
 	)
 }
