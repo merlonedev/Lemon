@@ -2,7 +2,12 @@ import { useEffect } from "react"
 
 // source: https://usehooks.com/useOnClickOutside/
 
-export default function useOutsideClick(ref, handler) {
+interface Props {
+	ref: any
+	onClose: () => void
+}
+
+export default function useOutsideClick({ref, onClose}: Props) {
 	useEffect(
 		() => {
 			const listener = (event: Event) => {
@@ -10,7 +15,7 @@ export default function useOutsideClick(ref, handler) {
 					return
 				}
 
-				handler(event)
+				onClose()
 			}
 
 			document.addEventListener("mousedown", listener)
@@ -22,6 +27,6 @@ export default function useOutsideClick(ref, handler) {
 			}
 		},
 
-		[ref, handler]
+		[ref, onClose]
 	)
 }

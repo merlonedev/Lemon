@@ -7,12 +7,11 @@ interface Props {
 	description?: string
 	isOpen: boolean
 	onClose: () => void
-	setIsOpen: (bool: boolean) => void
 }
 
-const Dialog = ({ title, description, isOpen, onClose, setIsOpen }: Props) => {
+const Dialog = ({ title, description, isOpen, onClose }: Props) => {
 	const ref = useRef<HTMLDivElement>(null)
-	useOutsideClick(ref, () => setIsOpen(false))
+	useOutsideClick({ ref, onClose })
 
 	return (
 		<Fragment>
