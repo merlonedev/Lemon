@@ -1,4 +1,4 @@
-import { Fragment, useRef } from "react"
+import { Fragment, useEffect, useRef } from "react"
 import useOutsideClick from "../../hooks/useOutsideClick"
 import "./dialog.sass"
 
@@ -12,6 +12,16 @@ interface Props {
 const Dialog = ({ title, description, isOpen, onClose }: Props) => {
 	const ref = useRef<HTMLDivElement>(null)
 	useOutsideClick({ ref, onClose })
+
+	useEffect(() => {
+		const closeWhenEsc = (event: any) => {
+			if (event.key === "Escape") {
+				onClose()
+			}
+		}
+		document.addEventListener("keydown", closeWhenEsc)
+		return () => document.removeEventListener("keydown", closeWhenEsc)
+	}, [])
 
 	return (
 		<Fragment>
